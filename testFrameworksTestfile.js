@@ -62,10 +62,44 @@ const findLowestNumber = function(inputArray){
 }
 
 
+/*
+ * 17. Ascending order - Given an array of numbers, check if the array is in ascending order
+ */
+
+const checkOrderForAscending = function(state,currvalue){
+  let {prevValue, statement}  = state;
+  if (prevValue < currvalue){
+    statement.push(true);
+  } else {
+    statement.push(false);
+  }
+  return { prevValue : currvalue , statement : statement}
+}
+
+const checkAscendingOrder = function(inputArray){
+  return statementArray = inputArray.reduce(checkOrderForAscending,
+    {prevValue : inputArray[0]-1 , statement : [] }). statement.
+    every( function (x){return x == true})
+}
+
+/*
+ * 16. Index Of a Number - Given an array of numbers find the first position of a specified number
+ */
+
+const findIndex = function(inputArray,number){
+  return indexOfNumber = inputArray.findIndex(function (element){
+    return element == number
+  });
+}
+
+
+
 logHeading();
-testFunction(selectOddNumbers,[1,3,4,5,6,7,8],[1,3,5,7]);
-testFunction(selectEvenNumbers,[1,-3,-4,8],[-4,8]);
-testFunction(fiboReverse,8,[13, 8, 5, 3, 2, 1, 1, 0]);
-testFunction(findLowestNumber,[1,3,4,0,-5,7,-10,5],-10);
+testFunction(selectOddNumbers,[[1,3,4,5,6,7,8]],[1,3,5,7]);
+testFunction(selectEvenNumbers,[[1,-3,-4,8]],[-4,8]);
+testFunction(fiboReverse,[8],[13, 8, 5, 3, 2, 1, 1, 0]);
+testFunction(findLowestNumber,[[1,3,4,0,-5,7,-10,5]],-10);
+testFunction(checkAscendingOrder,[[1,2,9,4,5]],false);// multi elements array
+testFunction(findIndex,[[1,4,0,-5,-6,7,-3,0],0] , 2);// array including 0 and -ve
 
 console.log("\nfine msg");

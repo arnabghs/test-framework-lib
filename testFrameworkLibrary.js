@@ -5,8 +5,8 @@ const assertOutput = function (actualOutput,expectedOutput){
 }
 
 const justify = function (text,length){
-  let NumberOfSpaces = length - text.length;
-  let spaces =new Array(NumberOfSpaces).fill(' ').join('');
+  let NumberOfSpaces = Math.abs(length - text.length);
+  let spaces = new Array(NumberOfSpaces).fill(' ').join('');
   output = text+spaces;
   return output;
 }
@@ -21,7 +21,7 @@ const logTestCase = function (functionName,input,actualOutput,expectedOutput){
   let line = '';
   line = justify(serialNo.toString(),8)+" | ";
   line += justify(functionName.name,25)+" | ";
-  line += justify (input.toString(),25)+" | ";
+  line += justify (input.toString(),35)+" | ";
   line += justify(actualOutput.toString(),25)+" | ";
   line += justify(expectedOutput.toString(),25);
   incrementSerialNo();
@@ -32,14 +32,14 @@ const logTestCase = function (functionName,input,actualOutput,expectedOutput){
 const logHeading = function (){
   let heading = justify("SerialNo",8)+" | ";
   heading += justify("function name",25)+" | ";
-  heading += justify("input",25)+" | ";
+  heading += justify("input",35)+" | ";
   heading += justify("actual Output",25)+" | ";
   heading += justify("expected Output",25)+"\n";
   console.log(heading);
 }
 
 const testFunction = function(functionName,input,expectedOutput){
-  let actualOutput = functionName(input); 
+  let actualOutput = functionName(input[0], input[1]); 
   logTestCase(functionName,input,actualOutput,expectedOutput);
   assertOutput(actualOutput,expectedOutput);
 }
