@@ -19,14 +19,19 @@ const incrementSerialNo = function(){
 
 const logTestCase = function (functionName,input,actualOutput,expectedOutput){
   let line = '';
+  //input = input.join("] , [");
   line = justify(serialNo.toString(),8)+" | ";
   line += justify(functionName.name,25)+" | ";
-  line += justify (input.toString(),35)+" | ";
-  line += justify(actualOutput.toString(),25)+" | ";
-  line += justify(expectedOutput.toString(),25);
+  line += justify (JSON.stringify(input),35)+" | ";
+  line += justify(JSON.stringify(actualOutput),25)+" | ";
+  line += justify(JSON.stringify(expectedOutput),25);
   incrementSerialNo();
 
   console.log(line);
+}
+
+const logDottedLine = function(){
+   console.log(new Array (125).fill('-').join(''));
 }
 
 const logHeading = function (){
@@ -44,4 +49,4 @@ const testFunction = function(functionName,input,expectedOutput){
   assertOutput(actualOutput,expectedOutput);
 }
 
-module.exports = {logHeading , testFunction };
+module.exports = {logHeading , testFunction, logDottedLine };
