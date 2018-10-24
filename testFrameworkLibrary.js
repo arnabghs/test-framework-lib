@@ -19,9 +19,9 @@ const incrementSerialNo = function(){
 
 const logTestCase = function (functionName,input,actualOutput,expectedOutput){
   let line = '';
-  line = justify(serialNo.toString(),8)+" | ";
-  line += justify(functionName.name,25)+" | ";
-  line += justify (JSON.stringify(input),35)+" | ";
+  line = justify(serialNo.toString(),5)+" | ";
+  line += justify(functionName.name,22)+" | ";
+  line += justify (JSON.stringify(input),40)+" | ";
   line += justify(JSON.stringify(actualOutput),25)+" | ";
   line += justify(JSON.stringify(expectedOutput),25);
   incrementSerialNo();
@@ -34,9 +34,9 @@ const logDottedLine = function(){
 }
 
 const logHeading = function (){
-  let heading = justify("SerialNo",8)+" | ";
-  heading += justify("function name",25)+" | ";
-  heading += justify("input",35)+" | ";
+  let heading = justify("SerialNo",5)+" | ";
+  heading += justify("function name",22)+" | ";
+  heading += justify("input",40)+" | ";
   heading += justify("actual Output",25)+" | ";
   heading += justify("expected Output",25)+"\n";
   console.log(heading);
