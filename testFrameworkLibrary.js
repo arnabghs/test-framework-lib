@@ -19,7 +19,6 @@ const incrementSerialNo = function(){
 
 const logTestCase = function (functionName,input,actualOutput,expectedOutput){
   let line = '';
-  //input = input.join("] , [");
   line = justify(serialNo.toString(),8)+" | ";
   line += justify(functionName.name,25)+" | ";
   line += justify (JSON.stringify(input),35)+" | ";
